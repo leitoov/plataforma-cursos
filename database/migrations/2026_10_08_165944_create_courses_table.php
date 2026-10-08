@@ -13,6 +13,15 @@ return new class extends Migration
     {
         Schema::create('courses', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->text('description')->nullable();
+            $table->string('video_url')->nullable();
+            $table->string('source')->nullable();
+            $table->integer('order')->default(0);
+            $table->boolean('is_active')->default(true);
+            $table->decimal('price_ars', 10, 2)->nullable();
+            $table->decimal('price_usd', 10, 2)->nullable();
+            $table->boolean('is_free')->default(false);
             $table->timestamps();
         });
     }
